@@ -123,7 +123,7 @@ router.post('/courses', authenticateUser, async (req,res,next)=>{
             materialsNeeded: req.body.materialsNeeded,
             userId: req.user.id
         })
-        res.status(201).send();
+        res.writeHead(201, {'Location': `/courses/${course.id}`}).end()
     } catch(err){
         err.status=400
         next(err)
