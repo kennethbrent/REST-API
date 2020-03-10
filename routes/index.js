@@ -135,7 +135,7 @@ router.put('/courses/:id', authenticateUser, async (req, res, next)=> {
         const course = await Course.findByPk(req.params.id);
         if(course.userId === req.user.id){
             await course.update(req.body)
-            res.status(200).send()   
+            res.status(204).send()   
         } else{
             res.status(403).send('Not authorized');
         }
@@ -150,7 +150,7 @@ router.delete('/courses/:id', authenticateUser,async (req, res)=> {
         const course = await Course.findByPk(req.params.id);
         if(course.userId === req.user.id){
             await course.destroy();
-            res.status(200).end();
+            res.status(204).end();
         } else {
             res.status(403).send('Not authorized')
         }

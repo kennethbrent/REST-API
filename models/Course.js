@@ -14,7 +14,7 @@ module.exports = (sequelize) => {
             }
         },
         description: {
-            type: Sequelize.STRING,
+            type: Sequelize.TEXT,
             validate: {
                 notEmpty: {
                     msg: 'Description is required'
